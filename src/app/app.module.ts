@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SignupComponent } from './signup/signup.component';
 import {RouterModule, Routes} from '@angular/router';
+import { AlertComponent } from './alert/alert.component';
 
 const appRoutes: Routes = [
   {path: '', component: WelcomeComponent},
+  {path: '/login', component: WelcomeComponent},
   {path: 'signup', component: SignupComponent},
 ];
 
@@ -16,7 +18,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     WelcomeComponent,
-    SignupComponent
+    SignupComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
