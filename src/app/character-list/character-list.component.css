@@ -1,0 +1,11 @@
+.list-group-item {
+    background-color: #B8B8B8;
+}
+
+#createBtn {
+    background-color: blue;
+}
+
+.list-group{
+    max-width: 50%;
+}
