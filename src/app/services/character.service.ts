@@ -1,3 +1,4 @@
+import { User } from './../models/user.model';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,6 +6,5 @@ import { Injectable } from '@angular/core';
 })
 export class CharacterService {
 
-  constructor() { 
-  }
+  constructor() {}
 }
