@@ -9,21 +9,20 @@ export class UserService {
   // Test data
   // TODO remove
   users: User[] = [
-    new User('Test', 'pass'),
+    new User('Test@gmail.com', 'pass'),
   ];
 
   constructor() { }
 
   // Add a new user to the database
-  createUser(name: string, password: string): void {
-    const newUser: User = new User(name, password);
+  createUser(newUser: User): void {
     this.users.push(newUser);
   }
 
   // validate to move to the next page
-  validateUser(name: string, password: string): boolean {
+  validateUser(email: string, password: string): boolean {
     for (const x in this.users) {
-      if (this.users[x].getName() === name &&
+      if (this.users[x].getEmail() === email &&
             this.users[x].getPassword() === password) {
         return true;
       } else {

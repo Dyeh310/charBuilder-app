@@ -1,6 +1,7 @@
 import { User } from './../models/user.model';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -10,16 +11,33 @@ import { UserService } from '../services/user.service';
 export class WelcomeComponent implements OnInit {
 
   users: User[];
+  validForm: boolean;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService,
+              private router: Router) {}
 
   ngOnInit() {
   }
 
+  // submit entire form
+  onSubmit(form): void {
+    // get user information
+    const email = form.loginEmail;
+    const pass = form.loginPassword;
+
+    // validate user information
+    this.validateUser(email, pass);
+  }
+
   // validate user
-  validateUser(name: string, password: string): void {
-    let autheticate: boolean = this.userService.validateUser(name, password);
+  validateUser(email: string, password: string): void {
+    const autheticate: boolean = this.userService.validateUser(email, password);
     // add functionality to nagivate to the character list page.
+    if (autheticate) {
+      this.router.navigate(['/character-list']);
+    } else {
+      alert('nope');
+    }
   }
 
   // update user list

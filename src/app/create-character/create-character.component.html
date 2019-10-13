@@ -1,0 +1,33 @@
+<!-- Page Header -->
+<div class="container text-center">
+    <div class="jumbotron">
+        <h1>
+           CharBuilder
+        </h1>
+        <p>An easy way to create your own personal avatar for 
+            any game and any reason!
+        </p>
+    </div>
+</div>
+      <!-- Page Header -->
+
+<div class="container">
+        <h2 class="text-center">
+            <p>Name:  </p>
+            <p>{{charName}}</p>
+        </h2>
+    <form #nameInput="ngForm" (ngSubmit)="onSubmit(nameInput.value)">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Name:</label>
+            <input
+            class="form-control"
+            type="text"
+            required
+            name="charName"
+            [(ngModel)]="charName"
+            #charNameHtml="ngModel"
+            />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

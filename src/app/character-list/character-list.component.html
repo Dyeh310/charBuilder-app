@@ -11,12 +11,21 @@
 
   <div class="container">
     <ul class="list-group text-center">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
+        <li 
+        class="list-group-item"
+        *ngFor="let char of characterList"
+        >
+          <p>{{char.getName()}}</p>  
+        </li>
+
         <br>
-        <button class="btn btn-primary">TEST</button>
+        <!-- Navigate-->
+        <button 
+        class="btn btn-primary"
+        (click)="toCreateCharacter()"
+        >
+          CREATE NEW CHARACTER
+        </button>
+        <!-- Navigate -->
       </ul>
   </div>

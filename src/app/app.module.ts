@@ -7,11 +7,14 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { SignupComponent } from './signup/signup.component';
 import {RouterModule, Routes} from '@angular/router';
 import { CharacterListComponent } from './character-list/character-list.component';
+import { CreateCharacterComponent } from './create-character/create-character.component';
 
 const appRoutes: Routes = [
   {path: '', component: WelcomeComponent},
+  {path: 'welcome', component: WelcomeComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'character-list', component: CharacterListComponent},
+  {path: 'create-character', component: CreateCharacterComponent},
 ];
 
 @NgModule({
@@ -19,7 +22,8 @@ const appRoutes: Routes = [
     AppComponent,
     WelcomeComponent,
     SignupComponent,
-    CharacterListComponent
+    CharacterListComponent,
+    CreateCharacterComponent
   ],
   imports: [
     BrowserModule,
