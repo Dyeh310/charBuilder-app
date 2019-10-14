@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class WelcomeComponent implements OnInit {
 
+  model: any ={};
+
   users: User[];
   validForm: boolean;
 
@@ -35,8 +37,6 @@ export class WelcomeComponent implements OnInit {
     // add functionality to nagivate to the character list page.
     if (autheticate) {
       this.router.navigate(['/character-list']);
-    } else {
-      alert('nope');
     }
   }
 

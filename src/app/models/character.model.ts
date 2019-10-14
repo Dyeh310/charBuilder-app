@@ -2,6 +2,8 @@ export class Character {
     uniqueId: number;
     name: string;
 
+    
+
     constructor(uniqueId: number, name: string) {
         this.uniqueId = uniqueId;
         this.name = name;

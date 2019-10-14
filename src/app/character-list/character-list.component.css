@@ -1,5 +1,5 @@
 .list-group-item {
-    background-color: #B8B8B8;
+    background-color: gainsboro;
 }
 
 #createBtn {
@@ -8,4 +8,11 @@
 
 .list-group{
     max-width: 50%;
+}
+
+/* 
+    Centers the container elements
+*/
+.col-center {
+    margin: 0 auto;
 }

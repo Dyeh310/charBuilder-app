@@ -9,19 +9,21 @@
   </div>
   <!-- Page Header -->
 
-  <div class="container">
-    <ul class="list-group text-center">
+  <div class="container text-center">
+    <ul class="list-group col-center">
         <li 
         class="list-group-item"
         *ngFor="let char of characterList"
         >
-          <p>{{char.getName()}}</p>  
+          <a [routerLink]="['/selected-character', char.getUniqueId()]">
+            {{char.getName()}}
+          </a>
         </li>
 
         <br>
         <!-- Navigate-->
         <button 
-        class="btn btn-primary"
+        class="btn btn-secondary"
         (click)="toCreateCharacter()"
         >
           CREATE NEW CHARACTER

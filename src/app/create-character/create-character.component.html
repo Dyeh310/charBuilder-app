@@ -16,7 +16,7 @@
             <p>Name:  </p>
             <p>{{charName}}</p>
         </h2>
-    <form #nameInput="ngForm" (ngSubmit)="onSubmit(nameInput.value)">
+    <form #nameInput="ngForm" (ngSubmit)="onSubmit(nameInput.value); nameInput.reset()">
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Name:</label>
             <input
@@ -29,5 +29,24 @@
             />
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <!-- Navigate -->
+        <!-- Add Field -->
+        <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="onAddField()"
+        >
+        Add New Field
+        </button>
+        <!-- Add Field -->
+        <button 
+        type="button" 
+        class="btn btn-danger"
+        (click)="onReturnToCharList()"
+        >
+        Character List
+        </button>
+        <!-- Navigate -->
+        
     </form>
 </div>

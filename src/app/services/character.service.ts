@@ -22,10 +22,25 @@ export class CharacterService {
   // generates ID for character
   // TODO make sure no character can have the same id
   generateUniqueId() {
-    const id = Math.round(Math.random() * 1000);
+    const id = Math.round(Math.random() * 10000);
     return id;
   }
 
+  createCharacter(name: string) {
+    const newCharacter = new Character(this.generateUniqueId(), name);
+    this.characterList.push(newCharacter);
+  }
+
+  // get a single character by Id
+  getCharacter(id: number): Character {
+    for (let char in this.characterList) {
+      if (this.characterList[char].getUniqueId() === id) {
+        return this.characterList[char];
+      }
+    }
+  }
+
+  // get all characters
   getCharacters() {
     return this.characterList;
   }

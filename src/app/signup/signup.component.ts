@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
+  passMismatch: boolean = false;
+
   constructor(private userService: UserService,
               private router: Router) { }
 
@@ -23,12 +25,14 @@ export class SignupComponent implements OnInit {
     const retypePass = form.singupPasswordRetype;
 
     // create and add user
-    // TODO validate retype password
+
+    // validate passwords
+    if (retypePass !== pass) {
+      this.passMismatch = true;
+      return;
+    }
     const newUser = new User(email, pass);
     this.userService.createUser(newUser);
-
-    // TODO REMOVE
-    console.log(this.userService.getUsers());
 
     // return to welcome page
     this.router.navigate(['/welcome']);
