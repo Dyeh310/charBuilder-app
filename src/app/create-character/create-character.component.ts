@@ -1,4 +1,3 @@
-import { FormGroup, FormArray, FormBuilder } from '@angular/forms';
 import { Character } from './../models/character.model';
 import { CharacterService } from './../services/character.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,17 +11,12 @@ import { Router } from '@angular/router';
 export class CreateCharacterComponent implements OnInit {
 
   charList: Character[];
-  orderForm: FormGroup;
-  items: FormArray;
+
 
   constructor(private characterService: CharacterService,
-              private router: Router,
-              private formbuilder: FormBuilder) { }
+              private router: Router) { }
 
   ngOnInit() {
-    this.orderForm = this.formbuilder.group ({
-      customerName: ''
-    });
   }
 
   onSubmit(form): void {

@@ -13,5 +13,13 @@ export class Attribute {
 
     getInput(): string {
         return this.input;
-    } 
+    }
+
+    setInput(input: string): void {
+        this.input = input;
+    }
+
+    setLabel(label: string): void {
+        this.label = label;
+    }
 }

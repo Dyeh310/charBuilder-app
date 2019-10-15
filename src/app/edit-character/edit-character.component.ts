@@ -32,5 +32,13 @@ export class EditCharacterComponent implements OnInit {
     return this.character.getName();
   }
 
+  onSaveInput(data, i) {
+    this.attributes[i].setInput(data);
+  }
+
+  onSaveLabel(data, i) {
+    this.attributes[i].setLabel(data);
+  }
+
   // TODO create
 }
