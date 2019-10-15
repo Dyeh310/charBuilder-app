@@ -1,12 +1,16 @@
+import { Attribute } from './attribute.model';
+
 export class Character {
     uniqueId: number;
     name: string;
+    attributes: Attribute[];
 
-    
 
-    constructor(uniqueId: number, name: string) {
+
+    constructor(uniqueId: number, name: string, atrributes: Attribute[]) {
         this.uniqueId = uniqueId;
         this.name = name;
+        this.attributes = atrributes;
     }
 
     getUniqueId() {
