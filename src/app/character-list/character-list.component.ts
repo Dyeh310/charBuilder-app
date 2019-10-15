@@ -28,4 +28,6 @@ export class CharacterListComponent implements OnInit {
     this.router.navigate(['/create-character']);
   }
 
+
+
 }

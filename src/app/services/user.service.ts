@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  // Test data
   // TODO remove
   users: User[] = [
     new User('Test@gmail.com', 'pass'),
