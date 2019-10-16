@@ -24,10 +24,9 @@ export class UserService {
       if (this.users[x].getEmail() === email &&
             this.users[x].getPassword() === password) {
         return true;
-      } else {
-        return false;
       }
     }
+    return false;
   }
 
   // retrieve all users

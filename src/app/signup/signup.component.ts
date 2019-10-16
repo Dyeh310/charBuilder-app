@@ -32,6 +32,7 @@ export class SignupComponent implements OnInit {
       return;
     }
     const newUser = new User(email, pass);
+    console.log(newUser)
     this.userService.createUser(newUser);
 
     // return to welcome page

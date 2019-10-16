@@ -17,6 +17,7 @@ export class EditCharacterComponent implements OnInit {
 
 
   constructor(private characterService: CharacterService,
+              private router: Router,
               private route: ActivatedRoute) {}
 
   ngOnInit() {
@@ -40,5 +41,7 @@ export class EditCharacterComponent implements OnInit {
     this.attributes[i].setLabel(data);
   }
 
-  // TODO create
+  onReturn() {
+    this.router.navigate(['/character-list']);
+  }
 }
