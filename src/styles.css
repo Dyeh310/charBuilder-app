@@ -12,3 +12,7 @@
 .display_inline{
     display: inline;
 }
+
+.button_top_padding {
+    margin-top: 5%;
+}

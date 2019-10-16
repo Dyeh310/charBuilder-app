@@ -44,4 +44,8 @@ export class EditCharacterComponent implements OnInit {
   onReturn() {
     this.router.navigate(['/character-list']);
   }
+
+  onReturnCharacterList() {
+    this.router.navigate(['/character-list']);
+  }
 }

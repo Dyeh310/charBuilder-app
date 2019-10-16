@@ -38,4 +38,8 @@ export class SelectedCharacterComponent implements OnInit {
     this.router.navigate(['/edit-character', this.character.getUniqueId()]);
   }
 
+  onReturnCharacterList() {
+    this.router.navigate(['/character-list']);
+  }
+
 }
