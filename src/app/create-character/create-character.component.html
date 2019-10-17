@@ -14,41 +14,36 @@
       <!-- Page Header -->
 
 <div class="container">
-        <h2 class="text-center">
-            <p>Name:  </p>
-            <p>{{charName}}</p>
-        </h2>
-    <form #nameInput="ngForm" (ngSubmit)="onSubmit(nameInput.value); nameInput.reset()">
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Name:</label>
-            <input
-            class="form-control"
-            type="text"
-            required
-            name="charName"
-            [(ngModel)]="charName"
-            #charNameHtml="ngModel"
+
+    <div class="container text-center">
+        <form>
+            <h3>Name</h3>
+            <input 
+            class="col-form-label"
             />
+            <div 
+            class="row"
+            >
+            <div class="col display_list_border ">
+               <input
+               name=""
+               class="text-center"
+               type="text"
+               >
+            </div>
+            <div class="col display_list_border">
+                <input
+                class="text-center"
+                type="text"
+                >
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <!-- Navigate -->
-        <!-- Add Field -->
-        <button
-        type="button"
-        class="btn btn-secondary"
-        (click)="onAddField()"
-        >
-        Add New Field
-        </button>
-        <!-- Add Field -->
-        <button 
-        type="button" 
-        class="btn btn-danger"
-        (click)="onReturnToCharList()"
-        >
-        Character List
-        </button>
-        <!-- Navigate -->
-        
     </form>
+    <button 
+    class="btn btn-warning"
+    
+    >
+    Create New Field</button>
+    </div>
+
 </div>

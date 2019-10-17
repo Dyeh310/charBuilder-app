@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CreateCharacterComponent implements OnInit {
 
-  charList: Character[];
+  character: Character[];
 
 
   constructor(private characterService: CharacterService,
