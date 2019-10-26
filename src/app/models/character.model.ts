@@ -28,4 +28,17 @@ export class Character {
     setName(name: string) {
         this.name = name;
     }
+
+    setAttribute(firstAtt: string, secondAtt: string) {
+        this.attributes.push(new Attribute(firstAtt, secondAtt));
+    }
+
+    getAttributes(): Attribute[] {
+        if (!this.attributes || !this.attributes.length) {
+            return null;
+        } else {
+            return this.attributes;
+        }
+    }
+
 }

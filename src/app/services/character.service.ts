@@ -50,6 +50,10 @@ export class CharacterService {
     this.characterList.push(newCharacter);
   }
 
+  setCharacter(char: Character): void {
+    this.characterList.push(char);
+  }
+
   // get a single character by Id
   getCharacter(id: number): Character {
     for (let char in this.characterList) {
@@ -63,7 +67,7 @@ export class CharacterService {
   getCharacters() {
     return this.characterList;
   }
-  
+
   getAttributes(id: number) {
     for (const x in this.characterList) {
       if (this.characterList[x].getUniqueId() === id) {
@@ -72,12 +76,6 @@ export class CharacterService {
     }
   }
 
-  // getFirstAttribute(attribute: Attribute) {
-  //   return attribute[0];
-  // }
 
-  // getSecondAttribute(attribute: Attribute) {
-  //   return attribute[1];
-  // }
 }
 

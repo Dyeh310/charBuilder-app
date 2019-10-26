@@ -16,34 +16,61 @@
 <div class="container">
 
     <div class="container text-center">
-        <form>
+        <form
+        #newCharForm="ngForm"
+        
+        id="main_form"
+        >
             <h3>Name</h3>
-            <input 
+            <input
+            type="text"
+            id="nameField"
+            required
+            name="nameField"
+            [(ngModel)]="nameField" 
             class="col-form-label"
             />
             <div 
             class="row"
+            id="id0"
             >
-            <div class="col display_list_border ">
-               <input
-               name=""
-               class="text-center"
-               type="text"
-               >
-            </div>
-            <div class="col display_list_border">
-                <input
-                class="text-center"
-                type="text"
-                >
-            </div>
+            <!-- Fields to Create --> 
+                <div class="col display_list_border ">
+                    <input
+
+                    class="text-center inputs"
+                    type="text"
+                    >
+                 </div>
+                 <div class="col display_list_border">
+                     <input
+                     class="text-center inputs"
+                     type="text"
+                     >
+                 </div>
+             <!-- Fields to Create -->
         </div>
     </form>
-    <button 
+
+    <!-- Field Button -->
+    <button
+    type="button" 
     class="btn btn-warning"
-    
+    (click)="onCreateFields()"
     >
     Create New Field</button>
     </div>
+    <!-- Field Button -->
+
+    <!-- Save Character Button -->
+    <button
+    type="button"
+    class="btn btn-success"
+    (click)="onSaveCharacter()"
+    id="save_character"
+    >
+    Save Character
+    </button>
+    <!-- Save Character Button -->
 
 </div>
