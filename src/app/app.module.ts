@@ -12,6 +12,7 @@ import { SelectedCharacterComponent } from './selected-character/selected-charac
 import { EditCharacterComponent } from './edit-character/edit-character.component';
 import { NoComponentFoundComponent } from './no-component-found/no-component-found.component';
 
+
 const appRoutes: Routes = [
   {path: '', component: WelcomeComponent},
   {path: 'welcome', component: WelcomeComponent},

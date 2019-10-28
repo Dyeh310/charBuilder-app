@@ -1,5 +1,6 @@
 
 
+
 <!-- Page Header -->
 <div class="container text-center">
     <div class="jumbotron">
@@ -15,6 +16,20 @@
 
 <div class="container">
 
+        
+        <div class = "btn-group">
+           <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
+              Character Templates 
+              <span class = "caret"></span>
+           </button>
+           
+           <ul class = "dropdown-menu" role = "menu">
+              <li><button class="btn btn-link" (click)="createWarrior()" type="button" name="op">Warrior</button></li>
+              <li><button class="btn btn-link" (click)="createMage()" type="button" name="op">Mage</button></li>
+              <li><button class="btn btn-link" (click)="createPriest()" type="button" name="op">Priest</button></li>
+           </ul>
+           
+        </div>
     <div class="container text-center">
         <form
         #newCharForm="ngForm"
@@ -30,11 +45,12 @@
             [(ngModel)]="nameField" 
             class="col-form-label"
             />
+
+            <!-- Fields to Create --> 
             <div 
             class="row"
             id="id0"
             >
-            <!-- Fields to Create --> 
                 <div class="col display_list_border ">
                     <input
 

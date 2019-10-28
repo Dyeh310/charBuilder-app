@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { NgForm } from '@angular/forms';
+import 'bootstrap/dist/js/bootstrap.bundle';
 
 @Component({
   selector: 'app-create-character',
@@ -100,6 +101,46 @@ export class CreateCharacterComponent implements OnInit {
     // create and push new character
     this.characterService.setCharacter(char);
     this.router.navigate(['/character-list']);
+  }
+
+  // -------------- CHAR TEMPLATES ------------------
+
+  createWarrior() {
+    const inputs = document.getElementsByClassName('inputs');
+    for (let i = 0; i < inputs.length; i++) {
+      $(inputs[i]).remove();
+    }
+
+    // this.onCreateFields();
+    // this.onCreateFields();
+    // this.onCreateFields();
+
+    // $('#id0 input').first().val('Health');
+    // $('#id1 input').first().val('Magic');
+    // $('#id2 input').first().val('Strength');
+    // $('#id3 input').first().val('Endurance');
+  }
+
+  createMage() {
+    this.onCreateFields();
+    this.onCreateFields();
+    this.onCreateFields();
+
+    $('#id0 input').first().val('Health');
+    $('#id1 input').first().val('Magic');
+    $('#id2 input').first().val('Intelligence');
+    $('#id3 input').first().val('Wisdom');
+  }
+
+  createPriest() {
+    this.onCreateFields();
+    this.onCreateFields();
+    this.onCreateFields();
+
+    $('#id0 input').first().val('Health');
+    $('#id1 input').first().val('Magic');
+    $('#id2 input').first().val('Serenity');
+    $('#id3 input').first().val('Discipline');
   }
 
 }
