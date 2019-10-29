@@ -14,6 +14,16 @@
     <h2 class="text-center">Please Login</h2>
     <br />
     <form #userLogin="ngForm" (ngSubmit)="onSubmit(userLogin.value)">
+      <!-- Incorrect Login Information -->
+      <div 
+      *ngIf="!autheticate"
+      class="alert alert-danger"
+      >
+        <p>
+          The username and password are not recognized or do not match.
+        </p>
+      </div>
+      <!-- Incorrect Login Information -->
         <div class="form-group row">
           <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
           <div class="col-sm-10">

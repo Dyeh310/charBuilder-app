@@ -15,6 +15,7 @@ export class SelectedCharacterComponent implements OnInit {
 
   character: Character;
   attributes: Attribute[];
+  checkAtrributes: boolean = true;
 
 
   constructor(private characterService: CharacterService,
@@ -25,9 +26,9 @@ export class SelectedCharacterComponent implements OnInit {
     this.currentId = this.route.snapshot.paramMap.get('id');
     this.character = this.characterService.getCharacter(+this.currentId);
     this.attributes = this.characterService.getAttributes(+this.currentId);
-    console.log('Attributes ' + this.attributes);
-    console.log(this.character);
-    console.log(+this.currentId);
+    if(!Array.isArray(this.attributes) || !this.attributes.length) {
+      this.checkAtrributes = false;
+    }
   }
 
   getName() {
