@@ -14,6 +14,7 @@ export class EditCharacterComponent implements OnInit {
 
   character: Character;
   attributes: Attribute[];
+  counter = 1;
 
 
   constructor(private characterService: CharacterService,
@@ -41,11 +42,63 @@ export class EditCharacterComponent implements OnInit {
     this.attributes[i].setLabel(data);
   }
 
-  onReturn() {
+  onReturnCharacterList() {
     this.router.navigate(['/character-list']);
   }
 
-  onReturnCharacterList() {
+  onCreateFields() {
+    const formTag = document.getElementById('main_form');
+
+    const newDiv = document.createElement('div');
+    const addDiv = newDiv as HTMLElement;
+    addDiv.id = 'id' + this.counter;
+    this.counter++;
+    $(addDiv).addClass('row');
+    formTag.appendChild(addDiv);
+
+    const firstDiv = document.createElement('div');
+    $(firstDiv).addClass('col display_list_border');
+    const secondDiv = document.createElement('div');
+    $(secondDiv).addClass('col display_list_border');
+
+    addDiv.appendChild(firstDiv);
+    addDiv.appendChild(secondDiv);
+
+    const firstInput = document.createElement('input');
+    $(firstInput).addClass('text-center inputs');
+    const secondInput = document.createElement('input');
+    $(secondInput).addClass('text-center inputs');
+
+    firstDiv.appendChild(firstInput);
+    secondDiv.appendChild(secondInput);
+
+    console.log(formTag);
+  }
+
+  onSaveCharacter() {
+    // loop to get input fields
+    const inputs = document.getElementsByClassName('inputs');
+    let count = 0;
+    let tempArray = [];
+    let realArray = [];
+
+    // tslint:disable-next-line: forin
+    for (let i = 0; i < inputs.length; i++) {
+      // tslint:disable-next-line: no-angle-bracket-type-assertion
+      tempArray.push((inputs[i] as HTMLInputElement).value);
+      realArray.push(tempArray.slice(0));
+
+      tempArray = [];
+
+      count++;
+      if (count === 2) {
+        this.character.setAttribute(realArray[0], realArray[1]);
+        count = 0;
+        realArray = [];
+        console.log(this.character);
+      }
+    }
+    // create and push new character
     this.router.navigate(['/character-list']);
   }
 }
