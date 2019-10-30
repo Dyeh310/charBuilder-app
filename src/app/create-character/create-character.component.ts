@@ -106,22 +106,23 @@ export class CreateCharacterComponent implements OnInit {
   // -------------- CHAR TEMPLATES ------------------
 
   createWarrior() {
-    const inputs = document.getElementsByClassName('inputs');
-    for (let i = 0; i < inputs.length; i++) {
-      $(inputs[i]).remove();
-    }
+    this.counter = 0;
+    $('.row').remove();
+    this.onCreateFields();
+    this.onCreateFields();
+    this.onCreateFields();
+    this.onCreateFields();
 
-    // this.onCreateFields();
-    // this.onCreateFields();
-    // this.onCreateFields();
-
-    // $('#id0 input').first().val('Health');
-    // $('#id1 input').first().val('Magic');
-    // $('#id2 input').first().val('Strength');
-    // $('#id3 input').first().val('Endurance');
+    $('#id0 input').first().val('Health');
+    $('#id1 input').first().val('Strength');
+    $('#id2 input').first().val('Rage');
+    $('#id3 input').first().val('Endurance');
   }
 
   createMage() {
+    this.counter = 0;
+    $('.row').remove();
+    this.onCreateFields();
     this.onCreateFields();
     this.onCreateFields();
     this.onCreateFields();
@@ -133,6 +134,9 @@ export class CreateCharacterComponent implements OnInit {
   }
 
   createPriest() {
+    this.counter = 0;
+    $('.row').remove();
+    this.onCreateFields();
     this.onCreateFields();
     this.onCreateFields();
     this.onCreateFields();
@@ -141,6 +145,15 @@ export class CreateCharacterComponent implements OnInit {
     $('#id1 input').first().val('Magic');
     $('#id2 input').first().val('Serenity');
     $('#id3 input').first().val('Discipline');
+  }
+
+  onRemoveFields() {
+    this.counter = 0;
+    $('.row').remove();
+  }
+
+  onReturnCharList() {
+    this.router.navigate(['/character-list']);
   }
 
 }
