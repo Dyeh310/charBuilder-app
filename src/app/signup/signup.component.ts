@@ -36,7 +36,7 @@ export class SignupComponent implements OnInit {
     this.userService.createUser(newUser);
 
     // return to welcome page
-    this.router.navigate(['/welcome']);
+    this.router.navigate(['/account-confirmation']);
   }
 
 }

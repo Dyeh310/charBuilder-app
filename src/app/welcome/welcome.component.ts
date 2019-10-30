@@ -12,6 +12,7 @@ export class WelcomeComponent implements OnInit {
 
   users: User[];
   validForm: boolean;
+  autheticate: boolean = true;
 
   constructor(private userService: UserService,
               private router: Router) {}
@@ -26,19 +27,16 @@ export class WelcomeComponent implements OnInit {
     const pass = form.loginPassword;
 
     // validate user information
-    this.validateUser(email, pass);
+    this.validateUser(email, pass, form);
   }
 
   // validate user
-  validateUser(email: string, password: string): void {
-    const autheticate: boolean = this.userService.validateUser(email, password);
+  validateUser(email: string, password: string, form): void {
+    this.autheticate = this.userService.validateUser(email, password);
     // add functionality to nagivate to the character list page.
-    if (autheticate) {
+    if (this.autheticate) {
       this.router.navigate(['/character-list']);
-    } else {
-      console.log(this.userService.getUsers());
     }
-
   }
 
   // update user list

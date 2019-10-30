@@ -27,7 +27,14 @@
     </h2>
     <br>
 
-    <div class="container text-center">
+    <div 
+    class="container text-center">
+    <div
+    *ngIf="!checkAtrributes"
+    class="container text-center grey"
+    >
+    <h3>There are currently attributes for this character! Please select Edit Character and add attributes!</h3>
+    </div>
             <div 
             class="row"
             *ngFor="let a of attributes"

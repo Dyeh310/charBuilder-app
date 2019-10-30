@@ -11,12 +11,14 @@ import { CreateCharacterComponent } from './create-character/create-character.co
 import { SelectedCharacterComponent } from './selected-character/selected-character.component';
 import { EditCharacterComponent } from './edit-character/edit-character.component';
 import { NoComponentFoundComponent } from './no-component-found/no-component-found.component';
+import { AccountConfirmationComponent } from './account-confirmation/account-confirmation.component';
 
 
 const appRoutes: Routes = [
   {path: '', component: WelcomeComponent},
   {path: 'welcome', component: WelcomeComponent},
   {path: 'signup', component: SignupComponent},
+  {path: 'account-confirmation', component: AccountConfirmationComponent},
   {path: 'character-list', component: CharacterListComponent},
   {path: 'create-character', component: CreateCharacterComponent},
   {path: 'edit-character/:id', component: EditCharacterComponent},
@@ -33,7 +35,8 @@ const appRoutes: Routes = [
     CreateCharacterComponent,
     SelectedCharacterComponent,
     EditCharacterComponent,
-    NoComponentFoundComponent
+    NoComponentFoundComponent,
+    AccountConfirmationComponent
   ],
   imports: [
     BrowserModule,
