@@ -1,26 +1,25 @@
 <!-- Page Header -->
 <div class="container text-center">
-        <div class="jumbotron">
-            <h1>
-                CharBuilder
-            </h1>
-            <p>An easy way to create your own personal avatar for 
-                 any game and any reason!
-            </p>
-            <div>
-                <button 
-                (click)="onReturnCharacterList()"
-                type="button" 
-                class="btn btn-primary button_top_padding">
-                    Character-List
-                </button>
-                </div>
+    <div class="jumbotron">
+        <h1>
+            CharBuilder
+        </h1>
+        <p>An easy way to create your own personal avatar for 
+                any game and any reason!
+        </p>
+        <div>
+            <button 
+            (click)="onReturnCharacterList()"
+            type="button" 
+            class="btn btn-primary button_top_padding">
+                Character-List
+            </button>
         </div>
-     </div>
-              <!-- Page Header -->
-    
+    </div>
+</div>
+<!-- Page Header -->
      
-             <!-- Name -->
+    <!-- Name -->
     <div class="container text-center">
         <h2>
             {{getName()}}
@@ -30,18 +29,18 @@
         <div 
         id="main_form"
         class="container text-center">
-                <div 
-                class="row"
-                *ngFor="let a of attributes; let i = index;"
-                >
-                    <div class="col display_list_border ">
-                       <input
-                       (input)="onSaveLabel($event.target.value, i)"
-                       name="{{i}}"
-                       class="text-center"
-                       type="text"
-                       value="{{a.getLabel()}}"
-                       >
+            <div 
+            class="row"
+            *ngFor="let a of attributes; let i = index;"
+            >
+                <div class="col display_list_border ">
+                    <input
+                    (input)="onSaveLabel($event.target.value, i)"
+                    name="{{i}}"
+                    class="text-center"
+                    type="text"
+                    value="{{a.getLabel()}}"
+                    >
                     </div>
                     <div class="col display_list_border">
                         <input
@@ -51,25 +50,27 @@
                         value="{{a.getInput()}}"
                         >
                     </div>
-                </div>
             </div>
-            <br>
-            <br>
+        </div>
+    <br>
+    <br>
 
             <button 
             type="button" 
             class="btn btn-warning"
             (click)="onCreateFields()"
             >
-            Create New Field</button>
+            Create New Field
+            </button>
 
-            <!-- Navigate and Save Changes -->
+        <!-- Navigate and Save Changes -->
         <button
         (click)="onSaveCharacter()"
         type="submit"
         class="btn btn-success"
-        >Save Changes</button>
-            <!-- Navigate and Save Changes -->
+        >Save Changes
+        </button>
+        <!-- Navigate and Save Changes -->
     </div>
     
     

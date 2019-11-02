@@ -13,9 +13,11 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 })
 export class CreateCharacterComponent implements OnInit {
   
+  // Used to keep track of input IDs
   counter = 1;
 
-
+  // Router for navigation
+  // Character service for manipulation of character list
   constructor(private characterService: CharacterService,
               private router: Router) { }
 
@@ -23,13 +25,14 @@ export class CreateCharacterComponent implements OnInit {
   }
 
   onSubmit(form): void {
+    // get form name
     const name = form.charName;
 
     // create new character
     this.characterService.createCharacter(name);
-    console.log(this.characterService.getCharacters());
   }
 
+  // Navigate to the Character List page
   onReturnToCharList() {
     this.router.navigate(['/character-list']);
   }
@@ -37,6 +40,7 @@ export class CreateCharacterComponent implements OnInit {
   onCreateFields() {
     const formTag = document.getElementById('main_form');
 
+    // Create main div and attach unique id
     const newDiv = document.createElement('div');
     const addDiv = newDiv as HTMLElement;
     addDiv.id = 'id' + this.counter;
@@ -44,6 +48,8 @@ export class CreateCharacterComponent implements OnInit {
     $(addDiv).addClass('row');
     formTag.appendChild(addDiv);
 
+    // Create two divs to hold input values and attach
+    // classes.
     const firstDiv = document.createElement('div');
     $(firstDiv).addClass('col display_list_border');
     const secondDiv = document.createElement('div');
@@ -52,10 +58,13 @@ export class CreateCharacterComponent implements OnInit {
     addDiv.appendChild(firstDiv);
     addDiv.appendChild(secondDiv);
 
+    // create inputs to take user data
     const firstInput = document.createElement('input');
     $(firstInput).addClass('text-center inputs');
+    $(firstInput).prop('required', true);
     const secondInput = document.createElement('input');
     $(secondInput).addClass('text-center inputs');
+    $(secondInput).prop('required', true);
 
     firstDiv.appendChild(firstInput);
     secondDiv.appendChild(secondInput);
@@ -74,6 +83,7 @@ export class CreateCharacterComponent implements OnInit {
     // loop to get input fields
     const inputs = document.getElementsByClassName('inputs');
     let count = 0;
+    // Two arrays necessary so that they can be sliced to avoid reference errors
     let tempArray = [];
     let realArray = [];
 
@@ -86,8 +96,10 @@ export class CreateCharacterComponent implements OnInit {
     for (let i = 0; i < inputs.length; i++) {
       // tslint:disable-next-line: no-angle-bracket-type-assertion
       tempArray.push((inputs[i] as HTMLInputElement).value);
+      // MUST slice array or reference error
       realArray.push(tempArray.slice(0));
 
+      // clear temp array
       tempArray = [];
 
       count++;
@@ -100,7 +112,7 @@ export class CreateCharacterComponent implements OnInit {
     }
     // create and push new character
     this.characterService.setCharacter(char);
-    this.router.navigate(['/character-list']);
+    this.router.navigate(['/character-confirmation']);
   }
 
   // -------------- CHAR TEMPLATES ------------------
