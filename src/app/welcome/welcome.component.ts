@@ -13,6 +13,8 @@ export class WelcomeComponent implements OnInit {
   users: User[];
   validForm: boolean;
   autheticate: boolean = true;
+  loginEmail: any;
+  loginPassword: any;
 
   constructor(private userService: UserService,
               private router: Router) {}

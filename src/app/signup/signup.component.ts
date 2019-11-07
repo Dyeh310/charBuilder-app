@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
 
   passMismatch: boolean = false;
+  signupEmail: any;
+  signupPassword: any;
+  singupPasswordRetype: any;
 
   constructor(private userService: UserService,
               private router: Router) { }

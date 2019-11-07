@@ -13,6 +13,8 @@ import { EditCharacterComponent } from './edit-character/edit-character.componen
 import { NoComponentFoundComponent } from './no-component-found/no-component-found.component';
 import { AccountConfirmationComponent } from './account-confirmation/account-confirmation.component';
 import { CharacterConfirmationComponent } from './character-confirmation/character-confirmation.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 const appRoutes: Routes = [
@@ -45,6 +47,7 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]
