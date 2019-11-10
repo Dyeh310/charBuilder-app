@@ -16,6 +16,8 @@ export class CreateCharacterComponent implements OnInit {
   // Used to keep track of input IDs
   counter = 1;
 
+  nameField: any;
+
   // Router for navigation
   // Character service for manipulation of character list
   constructor(private characterService: CharacterService,
