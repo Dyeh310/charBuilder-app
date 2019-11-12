@@ -78,11 +78,6 @@ export class CreateCharacterComponent implements OnInit {
     // reset nameCheck
     this.nameCheck = true;
 
-    // TODO 
-    // Delete this if no longer used
-    // the entire form
-    // const form = document.getElementById('main_form');
-
     // get name field
     const name = document.getElementById('nameField') as HTMLInputElement;
     const nameValue = name.value;

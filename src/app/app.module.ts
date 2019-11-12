@@ -15,6 +15,7 @@ import { AccountConfirmationComponent } from './account-confirmation/account-con
 import { CharacterConfirmationComponent } from './character-confirmation/character-confirmation.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { EditConfirmationComponent } from './edit-confirmation/edit-confirmation.component';
 
 
 const appRoutes: Routes = [
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
   {path: 'create-character', component: CreateCharacterComponent},
   {path: 'character-confirmation', component: CharacterConfirmationComponent},
   {path: 'edit-character/:id', component: EditCharacterComponent},
+  {path: 'edit-confirmation', component: EditConfirmationComponent},
   {path: 'selected-character/:id', component: SelectedCharacterComponent},
   {path: '**', component: NoComponentFoundComponent},
 ];
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     EditCharacterComponent,
     NoComponentFoundComponent,
     AccountConfirmationComponent,
-    CharacterConfirmationComponent
+    CharacterConfirmationComponent,
+    EditConfirmationComponent
   ],
   imports: [
     BrowserModule,

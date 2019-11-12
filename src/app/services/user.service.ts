@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  // TODO remove
   users: User[] = [];
 
   constructor() { }

@@ -10,8 +10,10 @@ import { Attribute } from './../models/attribute.model';
   styleUrls: ['./edit-character.component.css']
 })
 export class EditCharacterComponent implements OnInit {
+
   // TODO
-  // Create style for user name in Edit Input Field
+  // Toggle whether to show confirmation page for Edit Character
+
 
   currentId: string;
   character: Character;
@@ -92,10 +94,8 @@ export class EditCharacterComponent implements OnInit {
 
       // Save any changes to the name
       this.character.setName(nameValue);
-      // TODO
-      // Add transition
 
-     this.router.navigate(['/character-list']);
+      this.router.navigate(['/edit-confirmation']);
   }
 
 }

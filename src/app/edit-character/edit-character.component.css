@@ -2,3 +2,9 @@
     font-size: 0.8em;
     height: 50%;
 }
+
+#nameField {
+    font-family: Dejavu Sans;
+    font-size: 32px;
+    font-weight: bold;
+}
