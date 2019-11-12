@@ -15,8 +15,8 @@ export class CreateCharacterComponent implements OnInit {
   
   // Used to keep track of input IDs
   counter = 1;
-
   nameField: any;
+  nameCheck: boolean = true;
 
   // Router for navigation
   // Character service for manipulation of character list
@@ -75,8 +75,13 @@ export class CreateCharacterComponent implements OnInit {
   }
 
   onSaveCharacter() {
+    // reset nameCheck
+    this.nameCheck = true;
+
+    // TODO 
+    // Delete this if no longer used
     // the entire form
-    const form = document.getElementById('main_form');
+    // const form = document.getElementById('main_form');
 
     // get name field
     const name = document.getElementById('nameField') as HTMLInputElement;
@@ -89,6 +94,12 @@ export class CreateCharacterComponent implements OnInit {
     let tempArray = [];
     let realArray = [];
 
+    // check if the name field is empty
+    if (this.characterService.emptpyName(nameValue)) {
+      this.nameCheck = false;
+      return;
+    }
+    
     const char: Character = new Character(
       this.characterService.generateUniqueId(), nameValue, []
     );

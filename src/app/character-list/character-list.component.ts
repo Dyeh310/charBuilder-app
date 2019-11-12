@@ -17,7 +17,6 @@ export class CharacterListComponent implements OnInit {
 
   ngOnInit() {
     this.getCharacters();
-    console.log(this.characterList);
   }
 
   getCharacters() {

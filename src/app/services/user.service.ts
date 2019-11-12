@@ -7,9 +7,7 @@ import { Injectable } from '@angular/core';
 export class UserService {
 
   // TODO remove
-  users: User[] = [
-    new User('Test@gmail.com', 'pass'),
-  ];
+  users: User[] = [];
 
   constructor() { }
 

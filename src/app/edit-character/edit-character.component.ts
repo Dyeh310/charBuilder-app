@@ -10,11 +10,17 @@ import { Attribute } from './../models/attribute.model';
   styleUrls: ['./edit-character.component.css']
 })
 export class EditCharacterComponent implements OnInit {
-  currentId: string;
+  // TODO
+  // Create style for user name in Edit Input Field
 
+  currentId: string;
   character: Character;
   attributes: Attribute[];
   counter = 1;
+  // connected to the HTML input field
+  nameField;
+  // Check for empty name
+  nameCheck: boolean = true;
 
 
   constructor(private characterService: CharacterService,
@@ -25,9 +31,7 @@ export class EditCharacterComponent implements OnInit {
     this.currentId = this.route.snapshot.paramMap.get('id');
     this.character = this.characterService.getCharacter(+this.currentId);
     this.attributes = this.characterService.getAttributes(+this.currentId);
-    console.log('Attributes ' + this.attributes);
-    console.log(this.character);
-    console.log(+this.currentId);
+    this.nameField = this.getName();
   }
 
   getName() {
@@ -76,29 +80,22 @@ export class EditCharacterComponent implements OnInit {
   }
 
   onSaveCharacter() {
-    // loop to get input fields
-    const inputs = document.getElementsByClassName('inputs');
-    let count = 0;
-    let tempArray = [];
-    let realArray = [];
+      const name = document.getElementById('nameField') as HTMLInputElement;
+      const nameValue = name.value;
+      console.log('Name');
 
-    // tslint:disable-next-line: forin
-    for (let i = 0; i < inputs.length; i++) {
-      // tslint:disable-next-line: no-angle-bracket-type-assertion
-      tempArray.push((inputs[i] as HTMLInputElement).value);
-      realArray.push(tempArray.slice(0));
-
-      tempArray = [];
-
-      count++;
-      if (count === 2) {
-        this.character.setAttribute(realArray[0], realArray[1]);
-        count = 0;
-        realArray = [];
-        console.log(this.character);
+      // Check if the name field is empty
+      if (this.characterService.emptpyName(nameValue)){
+        this.nameCheck = false;
+        return;
       }
-    }
-    // create and push new character
-    this.router.navigate(['/character-list']);
+
+      // Save any changes to the name
+      this.character.setName(nameValue);
+      // TODO
+      // Add transition
+
+     this.router.navigate(['/character-list']);
   }
+
 }

@@ -6,3 +6,11 @@
 .margin-bottom {
     margin-bottom: 45px;
 }
+
+.blck {
+    display: block;
+}
+
+.big_gap_bottom {
+    margin-bottom: 200px;
+}

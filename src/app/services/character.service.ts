@@ -76,6 +76,15 @@ export class CharacterService {
     }
   }
 
+  // return false if the name field is empty when saved.
+  emptpyName(name: string): boolean {
+    if (name === '') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 
 }
 

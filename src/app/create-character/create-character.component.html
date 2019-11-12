@@ -12,28 +12,39 @@
       <!-- Page Header -->
 
     <!-- Character Temnplate Button -->
-    <div class="container">   
-            <div class = "btn-group">
-            <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
-                Character Templates 
-                <span class = "caret"></span>
-            </button>                           
-            <ul class = "dropdown-menu" role = "menu">
-                <li><button class="btn btn-link" (click)="createWarrior()" type="button" name="op">Warrior</button></li>
-                <li><button class="btn btn-link" (click)="createMage()" type="button" name="op">Mage</button></li>
-                <li><button class="btn btn-link" (click)="createPriest()" type="button" name="op">Priest</button></li>
-            </ul>      
+    <div class="container text-center">  
+         <div clas="row">
+             <div class='col'>
+                <div class = "btn-group">
+                    <button type = "button" class = "btn btn-primary dropdown-toggle" data-toggle = "dropdown">
+                        Character Templates 
+                        <span class = "caret"></span>
+                    </button>                           
+                    <ul class = "dropdown-menu" role = "menu">
+                        <li><button class="btn btn-link" (click)="createWarrior()" type="button" name="op">Warrior</button></li>
+                        <li><button class="btn btn-link" (click)="createMage()" type="button" name="op">Mage</button></li>
+                        <li><button class="btn btn-link" (click)="createPriest()" type="button" name="op">Priest</button></li>
+                    </ul> 
+             </div>
+         </div>
     </div>
     <!-- Character Temnplate Button -->
+<br>
+
 
     <div class="container text-center">
-            <button
-            class="text-center btn btn-primary"
-            type="button"
-            (click)="onReturnCharList()"
-            >
-            Character List
-            </button>
+        <div class="row">
+            <div class="col">
+                    <button
+                    class="text-center btn btn-primary"
+                    type="button"
+                    (click)="onReturnCharList()"
+                    >
+                    Character List
+                    </button>
+            </div>
+        </div>
+
         <form
         #newCharForm="ngForm"
         
@@ -47,7 +58,15 @@
             name="nameField"
             [(ngModel)]="nameField" 
             class="col-form-label"
+            #nameHtml="ngModel"
             />
+
+            <!-- Validation for Name -->
+                    <div *ngIf="!nameCheck"
+                    class="alert alert-danger">
+                      <p>Please enter a valid email address such as example@example.com.</p>
+                    </div>
+              <!-- Validation for Name -->            
 
             <!-- Fields to Create --> 
             <div 
