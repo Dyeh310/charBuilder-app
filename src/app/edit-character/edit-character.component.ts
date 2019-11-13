@@ -13,6 +13,8 @@ export class EditCharacterComponent implements OnInit {
 
   // TODO
   // Toggle whether to show confirmation page for Edit Character
+  // TODO
+  // If NO changes are made, ignore Edit-Confirmation page
 
 
   currentId: string;
@@ -23,6 +25,7 @@ export class EditCharacterComponent implements OnInit {
   nameField;
   // Check for empty name
   nameCheck: boolean = true;
+  confirmationCheck: boolean = false;
 
 
   constructor(private characterService: CharacterService,
@@ -84,7 +87,6 @@ export class EditCharacterComponent implements OnInit {
   onSaveCharacter() {
       const name = document.getElementById('nameField') as HTMLInputElement;
       const nameValue = name.value;
-      console.log('Name');
 
       // Check if the name field is empty
       if (this.characterService.emptpyName(nameValue)){
@@ -94,8 +96,26 @@ export class EditCharacterComponent implements OnInit {
 
       // Save any changes to the name
       this.character.setName(nameValue);
-
-      this.router.navigate(['/edit-confirmation']);
+      this.onNavigate(this.confirmationCheck);
   }
+
+  onCheckSwitch() {
+    if (this.confirmationCheck) {
+      this.confirmationCheck = false;
+    } else {
+      this.confirmationCheck = true;
+    }
+  }
+
+  // TODO
+  // Save the Confirmation Check to the character itself
+  onNavigate(check: boolean) {
+    if (check === true) {
+      this.router.navigate(['/edit-confirmation']);
+    } else {
+      this.router.navigate(['/character-list']);
+    }
+  }
+
 
 }
