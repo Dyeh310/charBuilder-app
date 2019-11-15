@@ -102,6 +102,60 @@
     </div>
     <!-- Field Button -->
 
+    <!-- Add Dice Button -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Add Dice
+</button>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Which type of dice would you like to add?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <button
+        id="6"
+        (click)="onAddDice($event)"
+        class="margin-right btn btn-info"
+        data-dismiss="modal"
+        >
+        6-sided
+        </button>
+        <button
+        id="8"
+        (click)="onAddDice($event)" 
+        class="margin-right btn btn-info"
+        data-dismiss="modal"
+        >
+        8-sided
+        </button>
+        <button 
+        id="10"
+        class="margin-right btn btn-info"
+        data-dismiss="modal"
+        >
+        10-sided
+        </button>
+        <button 
+        id="20"
+        class="margin-right btn btn-info"
+        data-dismiss="modal"
+        >
+        20-sided
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- Add Dice Button -->
+
     <!-- Save Character Button -->
     <button
     type="button"

@@ -12,8 +12,6 @@ import { Attribute } from './../models/attribute.model';
 export class EditCharacterComponent implements OnInit {
 
   // TODO
-  // Toggle whether to show confirmation page for Edit Character
-  // TODO
   // If NO changes are made, ignore Edit-Confirmation page
 
 

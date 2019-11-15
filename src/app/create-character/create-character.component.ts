@@ -3,7 +3,6 @@ import { CharacterService } from './../services/character.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
-import { NgForm } from '@angular/forms';
 import 'bootstrap/dist/js/bootstrap.bundle';
 
 @Component({
@@ -12,7 +11,14 @@ import 'bootstrap/dist/js/bootstrap.bundle';
   styleUrls: ['./create-character.component.css']
 })
 export class CreateCharacterComponent implements OnInit {
-  
+
+  // TODO
+  // Add dice option 
+  // First create popup
+  // ask sides
+  // add picture with that many sides
+  // add roll button
+
   // Used to keep track of input IDs
   counter = 1;
   nameField: any;
@@ -26,6 +32,8 @@ export class CreateCharacterComponent implements OnInit {
   ngOnInit() {
   }
 
+  // TODO
+  // Check if this is necessary
   onSubmit(form): void {
     // get form name
     const name = form.charName;
@@ -174,6 +182,32 @@ export class CreateCharacterComponent implements OnInit {
 
   onReturnCharList() {
     this.router.navigate(['/character-list']);
+  }
+
+  onAddDice(event) {
+    // get button ID for dice
+    const target = event.target || event.srcElement || event.currentTarget;
+    const idAttr = target.attributes.id;
+    const value = idAttr.nodeValue;
+    
+    // for each case, create image and number of dice (plus minut icon would be nice)
+    switch(+value) {
+      case 6:
+        // code
+        break;
+      case 8:
+        // code
+        break;
+      case 10:
+        // code
+        break;
+      case 20:
+        // code
+        break;
+      default:
+        // code
+
+    }
   }
 
 }
