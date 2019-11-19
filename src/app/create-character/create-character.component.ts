@@ -21,6 +21,7 @@ export class CreateCharacterComponent implements OnInit {
 
   // Used to keep track of input IDs
   counter = 1;
+  counterDice = 1;
   nameField: any;
   nameCheck: boolean = true;
 
@@ -189,11 +190,33 @@ export class CreateCharacterComponent implements OnInit {
     const target = event.target || event.srcElement || event.currentTarget;
     const idAttr = target.attributes.id;
     const value = idAttr.nodeValue;
+
+    // Main form tag
+    const formTag = document.getElementById('main_form');
     
     // for each case, create image and number of dice (plus minut icon would be nice)
     switch(+value) {
       case 6:
-        // code
+        // Create a new div
+        const newDiv = document.createElement('div');
+        const addDiv = newDiv as HTMLElement;
+        addDiv.id = 'idDice' + this.counterDice;
+        this.counterDice++;
+        $(addDiv).addClass('row');
+        // $(addDiv).addClass('six_dice');
+        formTag.appendChild(addDiv);
+
+        // create an image container
+        const conImg = document.createElement('img');
+        conImg.src = '../assets/dice/six-sided.png';
+        // TODO add 6_dice CSS
+        $(conImg).addClass('six_dice');
+
+        // Add div to the end of the form
+        addDiv.appendChild(conImg);
+        console.log(formTag);
+
+        // code implement
         break;
       case 8:
         // code
