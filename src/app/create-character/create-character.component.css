@@ -19,7 +19,12 @@
     margin-right: 15px;
 }
 
-.six_dice {
+.width_check {
+    max-width: 10%;
+}
+
+.six {
     width:25%; 
     height: auto;
+    display: block;
 }

@@ -116,7 +116,7 @@ export class CreateCharacterComponent implements OnInit {
       // MUST slice array or reference error
       realArray.push(tempArray.slice(0));
 
-      // clear temp array
+      // clear temp arrayd
       tempArray = [];
 
       count++;
@@ -197,23 +197,30 @@ export class CreateCharacterComponent implements OnInit {
     // for each case, create image and number of dice (plus minut icon would be nice)
     switch(+value) {
       case 6:
-        // Create a new div
+        // Created elements
         const newDiv = document.createElement('div');
         const addDiv = newDiv as HTMLElement;
+        const first = document.createElement('div');
+        const leftDiv = first as HTMLElement;
+        const nImg = document.createElement('img');
+        const conImg = nImg as HTMLImageElement;
+
+        // Add stuff
         addDiv.id = 'idDice' + this.counterDice;
         this.counterDice++;
-        $(addDiv).addClass('row');
-        // $(addDiv).addClass('six_dice');
-        formTag.appendChild(addDiv);
-
-        // create an image container
-        const conImg = document.createElement('img');
         conImg.src = '../assets/dice/six-sided.png';
-        // TODO add 6_dice CSS
-        $(conImg).addClass('six_dice');
+        $(addDiv).addClass('row');
+        $(leftDiv).addClass('width_check');
+        $(leftDiv).addClass('col');
+        conImg.classList.add('six_dice');
+               
+        // Attach
+        formTag.appendChild(conImg);
 
-        // Add div to the end of the form
-        addDiv.appendChild(conImg);
+        //addDiv.appendChild(leftDiv);
+        //leftDiv.appendChild(conImg);
+
+        // check
         console.log(formTag);
 
         // code implement
