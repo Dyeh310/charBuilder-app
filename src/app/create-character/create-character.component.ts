@@ -4,20 +4,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import 'bootstrap/dist/js/bootstrap.bundle';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-create-character',
   templateUrl: './create-character.component.html',
-  styleUrls: ['./create-character.component.css']
+  styleUrls: ['./create-character.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CreateCharacterComponent implements OnInit {
-
-  // TODO
-  // Add dice option 
-  // First create popup
-  // ask sides
-  // add picture with that many sides
-  // add roll button
 
   // Used to keep track of input IDs
   counter = 1;
@@ -103,16 +98,27 @@ export class CreateCharacterComponent implements OnInit {
       this.nameCheck = false;
       return;
     }
-    
-    const char: Character = new Character(
+      const char: Character = new Character(
       this.characterService.generateUniqueId(), nameValue, []
     );
-
-    console.log(char.getAttributes());
     // tslint:disable-next-line: forin
     for (let i = 0; i < inputs.length; i++) {
+      if (inputs[i].nodeName == 'IMG') {
+        console.log('first-test')
+        if (inputs[i].classList.contains('six')) {
+          tempArray.push('6');
+        } else  if (inputs[i].classList.contains('eight')) {
+          tempArray.push('8');
+        } else  if (inputs[i].classList.contains('ten')) {
+          tempArray.push('10');
+        } else if (inputs[i].classList.contains('twenty')) {
+          tempArray.push('20');
+        }
+      } else {
+        tempArray.push((inputs[i] as HTMLInputElement).value);
+      }
       // tslint:disable-next-line: no-angle-bracket-type-assertion
-      tempArray.push((inputs[i] as HTMLInputElement).value);
+
       // MUST slice array or reference error
       realArray.push(tempArray.slice(0));
 
@@ -190,54 +196,83 @@ export class CreateCharacterComponent implements OnInit {
     const target = event.target || event.srcElement || event.currentTarget;
     const idAttr = target.attributes.id;
     const value = idAttr.nodeValue;
+    console.log(value);
 
-    // Main form tag
-    const formTag = document.getElementById('main_form');
-    
+
     // for each case, create image and number of dice (plus minut icon would be nice)
     switch(+value) {
       case 6:
-        // Created elements
-        const newDiv = document.createElement('div');
-        const addDiv = newDiv as HTMLElement;
-        const first = document.createElement('div');
-        const leftDiv = first as HTMLElement;
-        const nImg = document.createElement('img');
-        const conImg = nImg as HTMLImageElement;
-
-        // Add stuff
-        addDiv.id = 'idDice' + this.counterDice;
-        this.counterDice++;
-        conImg.src = '../assets/dice/six-sided.png';
-        $(addDiv).addClass('row');
-        $(leftDiv).addClass('width_check');
-        $(leftDiv).addClass('col');
-        conImg.classList.add('six_dice');
-               
-        // Attach
-        formTag.appendChild(conImg);
-
-        //addDiv.appendChild(leftDiv);
-        //leftDiv.appendChild(conImg);
-
-        // check
-        console.log(formTag);
-
-        // code implement
+        this.createDice(value);
         break;
-      case 8:
-        // code
+      case 8: 
+      this.createDice(value);
         break;
       case 10:
-        // code
+          this.createDice(value)
         break;
       case 20:
-        // code
+        this.createDice(value)
         break;
       default:
         // code
-
     }
+  }
+
+  createDice(value) {
+    // Main form tag
+    const formTag = document.getElementById('main_form');
+
+    // Created elements
+    // Main
+    const newDiv = document.createElement('div');
+    const addDiv = newDiv as HTMLElement;
+    // Left
+    const first = document.createElement('div');
+    const leftDiv = first as HTMLElement;
+    const nImg = document.createElement('img');
+    const conImg = nImg as HTMLImageElement;
+    // Right
+    const second = document.createElement('div');
+    const rightDiv = second as HTMLElement;
+    $(rightDiv).addClass('col display_list_border');
+    const secondInput = document.createElement('input');
+    $(secondInput).addClass('text-center inputs');
+    $(secondInput).prop('required', true);
+    $(conImg).addClass('inputs');
+
+    addDiv.id = 'idDice' + this.counterDice;
+    this.counterDice++;
+    // Check dice value
+    if (value == 6) {
+      conImg.classList.add('dice');
+      conImg.classList.add('six');
+      conImg.src = '../assets/dice/six-sided.png';
+    } else if (value == 8) {
+      conImg.classList.add('dice');
+      conImg.classList.add('eight');
+      conImg.src = '../assets/dice/eight-sided.png';
+    } else if (value == 10) {
+      conImg.classList.add('dice');
+      conImg.classList.add('ten');
+      conImg.src = '../assets/dice/ten-sided.png';
+    } else if (value == 20) {
+      conImg.classList.add('dice');
+      conImg.classList.add('twenty');
+      conImg.src = '../assets/dice/twenty-sided.png';
+    }
+
+    $(addDiv).addClass('row');
+    $(leftDiv).addClass('col');
+
+    // Attach
+    leftDiv.appendChild(conImg);
+    addDiv.appendChild(leftDiv);
+    rightDiv.appendChild(secondInput);
+    addDiv.appendChild(rightDiv);
+    formTag.appendChild(addDiv);
+   
+    console.log(formTag);
+
   }
 
 }
