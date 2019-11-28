@@ -1,6 +1,7 @@
 export class Attribute {
     label: string;
     input: string;
+    diceFlag: boolean;
 
     constructor(label: string, input: string) {
         this.label = label;
@@ -13,6 +14,14 @@ export class Attribute {
 
     getInput(): string {
         return this.input;
+    }
+
+    setDiceFlag(flag: boolean) {
+        this.diceFlag = flag;
+    }
+
+    getDiceFlag() {
+        return this.diceFlag;
     }
 
     setInput(input: string): void {
